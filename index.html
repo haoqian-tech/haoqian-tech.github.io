@@ -45,6 +45,8 @@ img,svg{display:block;max-width:100%}
 .logo .mark{width:34px;height:34px;flex:none}
 .logo .zh{font-size:18px;color:var(--ink)}
 .logo .en{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:2px;display:block;margin-top:-2px}
+.nav .logo .zh{color:rgba(255,255,255,.9)}
+.nav .logo .en{color:rgba(255,255,255,.5)}
 .nav.scrolled .logo .zh{color:var(--ink)}
 .menu{display:flex;align-items:center;gap:34px;list-style:none}
 .menu a{font-size:15px;color:rgba(255,255,255,.85);font-weight:500;transition:.2s;position:relative}
@@ -308,7 +310,7 @@ section{padding:96px 0}
       </div>
       <div class="about-stats reveal">
         <div class="stat-card"><div class="num">2018</div><div class="lbl">团队组建 / 技术积累起点</div></div>
-        <div class="stat-card"><div class="num">2大</div><div class="lbl">核心产品线（开发板 / 加速卡）</div></div>
+        <div class="stat-card"><div class="num">4大</div><div class="lbl">核心产品线</div></div>
         <div class="stat-card"><div class="num">10+</div><div class="lbl">合作高校与科研院所</div></div>
         <div class="stat-card"><div class="num">50+</div><div class="lbl">累计交付科研项目</div></div>
       </div>
@@ -321,8 +323,8 @@ section{padding:96px 0}
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="sec-tag">产品中心</span>
-      <h2>从教学开发板到算力加速卡</h2>
-      <p>两条核心产品线覆盖嵌入式教学与算力加速场景，均可按科研需求提供定制方案。</p>
+<h2>从教学开发板到高端算力加速卡</h2>
+<p>多条核心产品线覆盖嵌入式教学、AI 算力加速、HBM 高带宽计算及 CXL 内存扩展场景，均可按科研需求提供定制方案。</p>
     </div>
     <div class="prod-grid">
       <!-- 开发板 -->
@@ -377,6 +379,64 @@ section{padding:96px 0}
             <li><span class="k">显存</span><span class="v">16GB / 32GB 可选</span></li>
             <li><span class="k">功耗</span><span class="v">150W – 250W（被动散热）</span></li>
             <li><span class="k">适用场景</span><span class="v">AI推理 / 算力集群 / 课题攻关</span></li>
+          </ul>
+          <a href="#contact" class="btn-line">了解详情 / 技术对接 →</a>
+        </div>
+      </div>
+      <!-- Xilinx HBM 加速卡 -->
+      <div class="prod-card reveal">
+        <div class="prod-visual acc">
+          <svg viewBox="0 0 380 200" fill="none">
+            <rect x="30" y="55" width="320" height="95" rx="8" fill="#0d2444" stroke="#2d7cff" stroke-width="1.5"/>
+            <rect x="55" y="75" width="110" height="55" rx="6" fill="#1a4477" stroke="#2d7cff"/>
+            <text x="110" y="108" fill="#7fe9ff" font-size="14" font-weight="700" text-anchor="middle" font-family="sans-serif">Xilinx HBM</text>
+            <g stroke="#2d7cff" opacity=".6"><line x1="180" y1="75" x2="180" y2="130"/><line x1="210" y1="75" x2="210" y2="130"/><line x1="240" y1="75" x2="240" y2="130"/></g>
+            <rect x="255" y="75" width="80" height="55" rx="5" fill="#10325f" stroke="#ff6b35"/><text x="295" y="107" fill="#ff6b35" font-size="11" text-anchor="middle" font-family="sans-serif">HBM2e</text>
+            <rect x="30" y="148" width="320" height="6" fill="#1f4e85"/>
+            <rect x="340" y="70" width="14" height="70" rx="2" fill="#10325f" stroke="#2d7cff"/>
+            <g fill="#ff6b35"><circle cx="180" cy="70" r="2.5"/><circle cx="195" cy="70" r="2.5"/><circle cx="210" cy="70" r="2.5"/></g>
+          </svg>
+        </div>
+        <div class="prod-body">
+          <span class="cat">高端加速卡 · HQ-HBM</span>
+          <h3>HQ-HBM 系列 Xilinx HBM 加速卡</h3>
+          <p class="desc">基于 Xilinx Versal / Alveo 平台的高端 HBM 加速卡，配备 HBM2e 高带宽存储，面向超大规模 AI 训练、金融风控、基因测序等场景，提供 TB/s 级内存带宽。</p>
+          <div class="chips"><span class="chip">Xilinx</span><span class="chip">HBM2e</span><span class="chip">Versal</span><span class="chip">超高带宽</span></div>
+          <ul class="specs">
+            <li><span class="k">平台</span><span class="v">Xilinx Versal / Alveo U55C</span></li>
+            <li><span class="k">HBM 容量</span><span class="v">16GB / 32GB HBM2e</span></li>
+            <li><span class="k">内存带宽</span><span class="v">460 GB/s – 820 GB/s</span></li>
+            <li><span class="k">接口</span><span class="v">PCIe Gen4 x16 / x8</span></li>
+            <li><span class="k">适用场景</span><span class="v">AI训练 / 金融风控 / 基因测序</span></li>
+          </ul>
+          <a href="#contact" class="btn-line">了解详情 / 技术对接 →</a>
+        </div>
+      </div>
+      <!-- Altera CXL 加速卡 -->
+      <div class="prod-card reveal">
+        <div class="prod-visual acc">
+          <svg viewBox="0 0 380 200" fill="none">
+            <rect x="30" y="55" width="320" height="95" rx="8" fill="#0d2444" stroke="#2d7cff" stroke-width="1.5"/>
+            <rect x="55" y="75" width="110" height="55" rx="6" fill="#1a4477" stroke="#2d7cff"/>
+            <text x="110" y="108" fill="#7fe9ff" font-size="14" font-weight="700" text-anchor="middle" font-family="sans-serif">Altera CXL</text>
+            <g stroke="#2d7cff" opacity=".6"><line x1="180" y1="75" x2="180" y2="130"/><line x1="210" y1="75" x2="210" y2="130"/><line x1="240" y1="75" x2="240" y2="130"/></g>
+            <rect x="255" y="75" width="80" height="55" rx="5" fill="#10325f" stroke="#a855f7"/><text x="295" y="107" fill="#a855f7" font-size="11" text-anchor="middle" font-family="sans-serif">CXL 2.0</text>
+            <rect x="30" y="148" width="320" height="6" fill="#1f4e85"/>
+            <rect x="340" y="70" width="14" height="70" rx="2" fill="#10325f" stroke="#2d7cff"/>
+            <g fill="#a855f7"><circle cx="180" cy="70" r="2.5"/><circle cx="195" cy="70" r="2.5"/><circle cx="210" cy="70" r="2.5"/></g>
+          </svg>
+        </div>
+        <div class="prod-body">
+          <span class="cat">CXL 内存扩展 · HQ-CXL</span>
+          <h3>HQ-CXL 系列 Altera CXL 加速卡</h3>
+          <p class="desc">基于 Altera Agilex 平台的 CXL 2.0/3.0 内存扩展加速卡，支持内存池化与扩展，突破单机内存容量瓶颈，适配大模型推理、内存数据库等海量内存需求场景。</p>
+          <div class="chips"><span class="chip">Altera</span><span class="chip">CXL 2.0/3.0</span><span class="chip">内存池化</span><span class="chip">Agilex</span></div>
+          <ul class="specs">
+            <li><span class="k">平台</span><span class="v">Altera Agilex 7 M-Series</span></li>
+            <li><span class="k">扩展内存</span><span class="v">512GB – 2TB DDR5</span></li>
+            <li><span class="k">CXL 协议</span><span class="v">CXL 2.0 / CXL 3.0</span></li>
+            <li><span class="k">接口</span><span class="v">PCIe Gen5 x16</span></li>
+            <li><span class="k">适用场景</span><span class="v">大模型推理 / 内存数据库 / 云原生</span></li>
           </ul>
           <a href="#contact" class="btn-line">了解详情 / 技术对接 →</a>
         </div>
@@ -471,14 +531,14 @@ section{padding:96px 0}
           </li>
           <li>
             <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></div>
-            <div><div class="k">企业邮箱</div><div class="v">jiangjie@haoqian-tech.com</div></div>
+            <div><div class="k">企业邮箱</div><div class="v">zhq@haoqian-tech.com</div></div>
           </li>
         </ul>
       </div>
       <div class="contact-cta-card reveal">
         <h3>提交您的需求</h3>
         <p>告诉我们您的应用场景，我们为您匹配最合适的开发板 / 加速卡方案或定制路径。</p>
-        <a href="mailto:jiangjie@haoqian-tech.com" class="btn btn-primary">发送邮件咨询</a>
+        <a href="mailto:zhq@haoqian-tech.com" class="btn btn-primary">发送邮件咨询</a>
         <p style="font-size:13px;color:#8ba0b8;margin-top:18px;text-align:center">我们将尽快回复您的邮件咨询</p>
       </div>
     </div>
@@ -495,7 +555,7 @@ section{padding:96px 0}
       </svg>
       <span><span class="zh">皓千电子</span><span class="en">HAOQIAN ELECTRONICS</span></span>
     </div>
-    <div class="copy">© 2026 武汉皓千电子科技有限公司 · <a href="#">鄂ICP备XXXXXXXX号</a> · 邮箱：jiangjie@haoqian-tech.com · 域名：haoqian-tech.com</div>
+    <div class="copy">© 2026 武汉皓千电子科技有限公司 · <a href="#">鄂ICP备XXXXXXXX号</a> · 邮箱：zhq@haoqian-tech.com · 域名：haoqian-tech.com</div>
   </div>
 </footer>
 
