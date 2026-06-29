@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>武汉皓千电子科技有限公司 — 开发板 · 加速卡 · 校企科研合作</title>
+<meta name="description" content="武汉皓千电子科技有限公司，专注于开发板、加速卡研发与高校科研院所合作，提供国产化嵌入式与算力加速解决方案。">
+<style>
+:root{
+  --ink:#0a1628;
+  --ink-2:#0f2a4a;
+  --brand:#00c2ff;
+  --brand-2:#2d7cff;
+  --accent:#22e0b0;
+  --bg:#ffffff;
+  --bg-soft:#f4f8fc;
+  --bg-soft-2:#eef3f9;
+  --line:#e3eaf2;
+  --text:#16243a;
+  --muted:#5b6b80;
+  --radius:16px;
+  --shadow:0 10px 30px rgba(15,42,74,.08);
+  --shadow-lg:0 20px 60px rgba(15,42,74,.14);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB",-apple-system,system-ui,sans-serif;
+  color:var(--text);background:var(--bg);line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+/* ---------- Nav ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:all .35s ease;
+  padding:18px 0;
+}
+.nav.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line);padding:12px 0}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px}
+.logo .mark{width:34px;height:34px;flex:none}
+.logo .zh{font-size:18px;color:var(--ink)}
+.logo .en{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:2px;display:block;margin-top:-2px}
+.nav.scrolled .logo .zh{color:var(--ink)}
+.menu{display:flex;align-items:center;gap:34px;list-style:none}
+.menu a{font-size:15px;color:rgba(255,255,255,.85);font-weight:500;transition:.2s;position:relative}
+.menu a:hover{color:#fff}
+.nav.scrolled .menu a{color:var(--text)}
+.nav.scrolled .menu a:hover{color:var(--brand-2)}
+.menu a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--brand);transition:.25s}
+.menu a:hover::after{width:100%}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:40px;font-weight:600;font-size:14px;transition:.25s;cursor:pointer;border:none}
+.btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 8px 20px rgba(0,194,255,.35)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(0,194,255,.45)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+.btn-ghost:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.nav.scrolled .btn-ghost{color:var(--ink-2);border-color:var(--line)}
+.nav.scrolled .btn-ghost:hover{background:var(--bg-soft);border-color:var(--brand)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none}
+.burger span{width:24px;height:2px;background:#fff;border-radius:2px;transition:.3s}
+.nav.scrolled .burger span{background:var(--ink)}
+.nav-cta{display:flex;align-items:center;gap:18px}
+
+/* ---------- Hero ---------- */
+.hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  background:radial-gradient(1200px 600px at 80% -10%,#163a66 0%,transparent 60%),
+             radial-gradient(900px 500px at 10% 110%,#0d2848 0%,transparent 55%),
+             linear-gradient(160deg,#070f1d 0%,#0a1628 50%,#0c1f38 100%);
+  color:#fff;overflow:hidden;padding:120px 0 80px;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(0,194,255,.06) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(0,194,255,.06) 1px,transparent 1px);
+  background-size:54px 54px;mask-image:radial-gradient(circle at 50% 40%,#000 0%,transparent 75%);
+  -webkit-mask-image:radial-gradient(circle at 50% 40%,#000 0%,transparent 75%);
+}
+.orb{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;animation:float 9s ease-in-out infinite}
+.orb.a{width:340px;height:340px;background:radial-gradient(circle,#00c2ff,transparent 70%);top:-60px;right:8%}
+.orb.b{width:280px;height:280px;background:radial-gradient(circle,#2d7cff,transparent 70%);bottom:-40px;left:6%;animation-delay:-3s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-26px)}}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:50px;align-items:center}
+.tagline{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border-radius:40px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);font-size:13px;color:#bfe6ff;margin-bottom:26px}
+.tagline .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent)}
+.hero h1{font-size:clamp(34px,5vw,58px);line-height:1.15;font-weight:800;letter-spacing:-1px;margin-bottom:22px}
+.hero h1 .grad{background:linear-gradient(120deg,#7fe9ff,#2d7cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lead{font-size:18px;color:#b9c7da;max-width:560px;margin-bottom:34px}
+.hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:48px}
+.hero-stats{display:flex;gap:42px;flex-wrap:wrap}
+.hero-stats .num{font-size:32px;font-weight:800;color:#fff;line-height:1}
+.hero-stats .lbl{font-size:13px;color:#8ba0b8;margin-top:6px}
+.hero-art{position:relative}
+.board-svg{width:100%;filter:drop-shadow(0 30px 50px rgba(0,0,0,.5));animation:float 7s ease-in-out infinite}
+
+/* ---------- Section base ---------- */
+section{padding:96px 0}
+.sec-head{text-align:center;max-width:680px;margin:0 auto 60px}
+.sec-tag{display:inline-block;font-size:13px;font-weight:700;letter-spacing:2px;color:var(--brand-2);text-transform:uppercase;margin-bottom:14px}
+.sec-head h2{font-size:clamp(28px,3.6vw,40px);font-weight:800;color:var(--ink);letter-spacing:-.5px;margin-bottom:16px}
+.sec-head p{font-size:16px;color:var(--muted)}
+
+/* ---------- About ---------- */
+.about{background:var(--bg)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.about-text h2{font-size:34px;font-weight:800;color:var(--ink);margin-bottom:20px;line-height:1.2}
+.about-text p{color:var(--muted);margin-bottom:16px;font-size:15.5px}
+.about-points{list-style:none;margin-top:24px}
+.about-points li{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;font-size:15px;color:var(--text)}
+.about-points .tick{width:22px;height:22px;flex:none;border-radius:50%;background:rgba(0,194,255,.12);display:grid;place-items:center;color:var(--brand-2);font-size:12px;margin-top:3px}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.stat-card{background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;transition:.3s}
+.stat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:transparent}
+.stat-card .num{font-size:40px;font-weight:800;background:linear-gradient(120deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.stat-card .lbl{font-size:14px;color:var(--muted);margin-top:10px}
+
+/* ---------- Products ---------- */
+.products{background:var(--bg-soft)}
+.prod-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.prod-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);transition:.35s;display:flex;flex-direction:column}
+.prod-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.prod-visual{height:220px;display:grid;place-items:center;position:relative;overflow:hidden}
+.prod-visual.dev{background:linear-gradient(135deg,#0a1628,#163a66)}
+.prod-visual.acc{background:linear-gradient(135deg,#0c1f38,#1d2b5e)}
+.prod-visual svg{width:78%;height:auto;filter:drop-shadow(0 16px 30px rgba(0,0,0,.4))}
+.prod-body{padding:30px 30px 34px;flex:1;display:flex;flex-direction:column}
+.prod-body .cat{font-size:12px;font-weight:700;letter-spacing:1.5px;color:var(--brand-2);text-transform:uppercase}
+.prod-body h3{font-size:24px;font-weight:800;color:var(--ink);margin:8px 0 12px}
+.prod-body p.desc{color:var(--muted);font-size:15px;margin-bottom:20px}
+.specs{list-style:none;margin-bottom:24px;flex:1}
+.specs li{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px}
+.specs li:last-child{border-bottom:none}
+.specs .k{color:var(--muted)}
+.specs .v{color:var(--ink);font-weight:600;text-align:right}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.chip{font-size:12px;padding:5px 12px;border-radius:20px;background:var(--bg-soft);color:var(--ink-2);font-weight:600;border:1px solid var(--line)}
+.btn-line{align-self:flex-start;color:var(--brand-2);font-weight:700;font-size:14px;display:inline-flex;align-items:center;gap:6px;transition:.25s}
+.btn-line:hover{gap:12px;color:var(--brand)}
+
+/* ---------- Cooperation ---------- */
+.coop{background:#fff}
+.coop-intro{text-align:center;max-width:720px;margin:0 auto 50px;color:var(--muted)}
+.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.case-card{border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;transition:.3s;background:var(--bg-soft)}
+.case-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);background:#fff;border-color:transparent}
+.case-tag{display:inline-block;font-size:12px;font-weight:700;padding:5px 12px;border-radius:20px;margin-bottom:16px}
+.case-tag.lab{background:rgba(0,194,255,.12);color:#0090c8}
+.case-tag.dev{background:rgba(45,124,255,.12);color:#2d7cff}
+.case-tag.res{background:rgba(34,224,176,.14);color:#0d9e7a}
+.case-card h4{font-size:18px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.case-card .partner{font-size:13px;color:var(--brand-2);font-weight:600;margin-bottom:12px}
+.case-card p{font-size:14px;color:var(--muted);margin-bottom:18px}
+.case-out{display:flex;align-items:center;gap:8px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--ink-2);font-weight:600}
+.case-out .ic{color:var(--accent)}
+
+/* ---------- Advantages ---------- */
+.adv{background:var(--bg-soft)}
+.adv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.adv-card{background:#fff;border-radius:var(--radius);padding:34px 26px;text-align:center;border:1px solid var(--line);transition:.3s}
+.adv-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.adv-ic{width:58px;height:58px;margin:0 auto 18px;border-radius:16px;background:linear-gradient(135deg,rgba(0,194,255,.12),rgba(45,124,255,.12));display:grid;place-items:center;color:var(--brand-2)}
+.adv-card h4{font-size:17px;font-weight:700;color:var(--ink);margin-bottom:10px}
+.adv-card p{font-size:14px;color:var(--muted)}
+
+/* ---------- Contact ---------- */
+.contact{background:linear-gradient(160deg,#0a1628,#0f2a4a);color:#fff;padding:90px 0}
+.contact .sec-head h2{color:#fff}
+.contact .sec-head p{color:#9fb3cc}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;margin-top:20px}
+.contact-info h3{font-size:26px;font-weight:800;margin-bottom:18px}
+.contact-info p.lead{color:#9fb3cc;margin-bottom:30px;font-size:15.5px}
+.clist{list-style:none}
+.clist li{display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.clist .ic{width:42px;height:42px;flex:none;border-radius:12px;background:rgba(255,255,255,.06);display:grid;place-items:center;color:var(--brand)}
+.clist .k{font-size:12px;color:#8ba0b8;margin-bottom:3px}
+.clist .v{font-size:16px;font-weight:600;color:#fff}
+.contact-cta-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:42px;backdrop-filter:blur(10px)}
+.contact-cta-card h3{font-size:24px;font-weight:800;margin-bottom:12px}
+.contact-cta-card p{color:#9fb3cc;margin-bottom:26px;font-size:15px}
+.contact-cta-card .btn{width:100%;justify-content:center}
+
+/* ---------- Footer ---------- */
+.footer{background:#070f1d;color:#8ba0b8;padding:50px 0 30px}
+.footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.footer .logo .zh{color:#fff}
+.copy{font-size:13px}
+.copy a{color:#9fb3cc}
+
+/* ---------- Reveal animation ---------- */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ---------- Responsive ---------- */
+@media(max-width:900px){
+  .hero .wrap,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .hero-art{display:none}
+  .prod-grid,.case-grid{grid-template-columns:1fr}
+  .adv-grid{grid-template-columns:1fr 1fr}
+  .menu{position:fixed;top:0;right:-100%;height:100vh;width:75%;max-width:320px;background:#0a1628;flex-direction:column;justify-content:center;gap:30px;padding:40px;transition:.4s}
+  .menu.open{right:0}
+  .menu a{color:#fff!important;font-size:18px}
+  .burger{display:flex}
+  .nav-cta .btn-ghost{display:none}
+}
+@media(max-width:560px){
+  .adv-grid{grid-template-columns:1fr}
+  .about-stats{grid-template-columns:1fr 1fr}
+  section{padding:70px 0}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="logo">
+      <svg class="mark" viewBox="0 0 40 40" fill="none">
+        <rect x="3" y="3" width="34" height="34" rx="9" fill="url(#lg)"/>
+        <path d="M13 14h14M20 14v12M15 26h10" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/>
+        <circle cx="20" cy="20" r="2.4" fill="#22e0b0"/>
+        <defs><linearGradient id="lg" x1="3" y1="3" x2="37" y2="37"><stop stop-color="#00c2ff"/><stop offset="1" stop-color="#2d7cff"/></linearGradient></defs>
+      </svg>
+      <span>
+        <span class="zh">皓千电子</span>
+        <span class="en">HAOQIAN ELECTRONICS</span>
+      </span>
+    </a>
+    <ul class="menu" id="menu">
+      <li><a href="#about">关于我们</a></li>
+      <li><a href="#products">产品中心</a></li>
+      <li><a href="#coop">校企合作</a></li>
+      <li><a href="#adv">技术优势</a></li>
+      <li><a href="#contact">联系我们</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-ghost">咨询合作</a>
+      <button class="burger" id="burger" aria-label="菜单"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <span class="orb a"></span><span class="orb b"></span>
+  <div class="wrap">
+    <div class="hero-text">
+      <span class="tagline"><span class="dot"></span> 开发板 · 加速卡 · 校企科研合作</span>
+      <h1>为科研与产业提供<br><span class="grad">国产化算力加速方案</span></h1>
+      <p class="lead">武汉皓千电子科技有限公司，专注嵌入式开发板与算力加速卡研发，与高校、科研院所深度协同，让前沿芯片技术真正落地教学与课题。</p>
+      <div class="hero-cta">
+        <a href="#products" class="btn btn-primary">查看产品</a>
+        <a href="#contact" class="btn btn-ghost">联系合作</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="num">10+</div><div class="lbl">合作高校 / 研究所</div></div>
+        <div><div class="num">20+</div><div class="lbl">累计交付开发板型号</div></div>
+        <div><div class="num">100%</div><div class="lbl">自主技术支持</div></div>
+      </div>
+    </div>
+    <div class="hero-art">
+      <!-- 开发板插画 -->
+      <svg class="board-svg" viewBox="0 0 420 300" fill="none">
+        <rect x="30" y="40" width="360" height="220" rx="16" fill="#0d2444" stroke="#1f4e85" stroke-width="2"/>
+        <rect x="30" y="40" width="360" height="220" rx="16" fill="url(#bg2)" opacity=".5"/>
+        <rect x="60" y="70" width="120" height="120" rx="8" fill="#10325f" stroke="#2d7cff" stroke-width="1.5"/>
+        <rect x="78" y="88" width="84" height="84" rx="4" fill="#1a4477"/>
+        <text x="120" y="135" fill="#7fe9ff" font-size="20" font-weight="700" text-anchor="middle" font-family="sans-serif">SoC</text>
+        <circle cx="120" cy="195" r="6" fill="#22e0b0"/>
+        <g stroke="#2d7cff" stroke-width="1.4" opacity=".7">
+          <line x1="60" y1="210" x2="180" y2="210"/><line x1="60" y1="225" x2="160" y2="225"/>
+          <line x1="210" y1="70" x2="210" y2="230"/><line x1="250" y1="70" x2="250" y2="230"/>
+          <line x1="290" y1="70" x2="290" y2="230"/><line x1="330" y1="70" x2="330" y2="230"/>
+        </g>
+        <g fill="#0a1628" stroke="#2d7cff" stroke-width="1.2">
+          <rect x="205" y="95" width="30" height="20" rx="3"/><rect x="245" y="95" width="30" height="20" rx="3"/>
+          <rect x="205" y="135" width="30" height="20" rx="3"/><rect x="245" y="135" width="30" height="20" rx="3"/>
+          <rect x="285" y="115" width="30" height="20" rx="3"/><rect x="325" y="115" width="30" height="20" rx="3"/>
+        </g>
+        <rect x="205" y="180" width="120" height="50" rx="6" fill="#10325f" stroke="#22e0b0" stroke-width="1.4"/>
+        <text x="265" y="210" fill="#22e0b0" font-size="13" text-anchor="middle" font-family="sans-serif" font-weight="600">HQ-Dev Board</text>
+        <g fill="#7fe9ff"><circle cx="70" cy="240" r="3"/><circle cx="85" cy="240" r="3"/><circle cx="100" cy="240" r="3"/><circle cx="115" cy="240" r="3"/></g>
+        <defs><linearGradient id="bg2" x1="30" y1="40" x2="390" y2="260"><stop stop-color="#2d7cff"/><stop offset="1" stop-color="#00c2ff"/></linearGradient></defs>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <span class="sec-tag">关于皓千</span>
+        <h2>扎根光谷，让芯片技术<br>真正服务教学与科研</h2>
+        <p>武汉皓千电子科技有限公司位于中国武汉，是一家专注于嵌入式开发板与算力加速卡研发的科技公司。我们以国产芯片方案为核心，面向高校教学、科研课题与产业原型开发，提供从硬件到配套资料的一站式产品。</p>
+        <p>公司与多所高校及科研院所建立合作，参与联合实验室建设、定制开发板设计与课题攻关，致力于降低前沿算力与嵌入式技术的使用门槛。</p>
+        <ul class="about-points">
+          <li><span class="tick">✓</span><span>以国产化芯片方案为核心，自主可控</span></li>
+          <li><span class="tick">✓</span><span>面向教学与科研场景，配套完整资料与例程</span></li>
+          <li><span class="tick">✓</span><span>支持按需求定制硬件，快速响应课题节奏</span></li>
+          <li><span class="tick">✓</span><span>本地化技术支持，从选型到部署全程协助</span></li>
+        </ul>
+      </div>
+      <div class="about-stats reveal">
+        <div class="stat-card"><div class="num">2018</div><div class="lbl">团队组建 / 技术积累起点</div></div>
+        <div class="stat-card"><div class="num">2大</div><div class="lbl">核心产品线（开发板 / 加速卡）</div></div>
+        <div class="stat-card"><div class="num">10+</div><div class="lbl">合作高校与科研院所</div></div>
+        <div class="stat-card"><div class="num">50+</div><div class="lbl">累计交付科研项目</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS ============ -->
+<section class="products" id="products">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">产品中心</span>
+      <h2>从教学开发板到算力加速卡</h2>
+      <p>两条核心产品线覆盖嵌入式教学与算力加速场景，均可按科研需求提供定制方案。</p>
+    </div>
+    <div class="prod-grid">
+      <!-- 开发板 -->
+      <div class="prod-card reveal">
+        <div class="prod-visual dev">
+          <svg viewBox="0 0 380 200" fill="none">
+            <rect x="20" y="20" width="340" height="160" rx="12" fill="#0d2444" stroke="#2d7cff" stroke-width="1.5"/>
+            <rect x="50" y="45" width="110" height="110" rx="8" fill="#1a4477" stroke="#2d7cff"/>
+            <text x="105" y="108" fill="#7fe9ff" font-size="16" font-weight="700" text-anchor="middle" font-family="sans-serif">FPGA/SoC</text>
+            <g stroke="#2d7cff" opacity=".6"><line x1="180" y1="45" x2="180" y2="155"/><line x1="210" y1="45" x2="210" y2="155"/><line x1="240" y1="45" x2="240" y2="155"/><line x1="270" y1="45" x2="270" y2="155"/><line x1="300" y1="45" x2="300" y2="155"/></g>
+            <rect x="195" y="60" width="120" height="34" rx="5" fill="#10325f" stroke="#22e0b0"/><text x="255" y="82" fill="#22e0b0" font-size="11" text-anchor="middle" font-family="sans-serif">扩展接口</text>
+            <g fill="#22e0b0"><circle cx="60" cy="165" r="2.5"/><circle cx="74" cy="165" r="2.5"/><circle cx="88" cy="165" r="2.5"/></g>
+          </svg>
+        </div>
+        <div class="prod-body">
+          <span class="cat">开发板系列 · HQ-Dev</span>
+          <h3>HQ-Dev 系列教学开发板</h3>
+          <p class="desc">基于国产 FPGA / RISC-V SoC 的教学与原型开发板，配套完整例程、实验指导书与课程方案，适配嵌入式教学与课题验证。</p>
+          <div class="chips"><span class="chip">国产FPGA</span><span class="chip">RISC-V</span><span class="chip">教学例程</span><span class="chip">开源资料</span></div>
+          <ul class="specs">
+            <li><span class="k">主控方案</span><span class="v">国产 FPGA / RISC-V SoC</span></li>
+            <li><span class="k">存储</span><span class="v">DDR3 1GB / eMMC 8GB</span></li>
+            <li><span class="k">扩展接口</span><span class="v">GPIO · PCIe · MIPI · 网口</span></li>
+            <li><span class="k">配套资料</span><span class="v">例程 · 实验手册 · 课程包</span></li>
+            <li><span class="k">适用场景</span><span class="v">教学实验 / 课题原型</span></li>
+          </ul>
+          <a href="#contact" class="btn-line">了解详情 / 申请样机 →</a>
+        </div>
+      </div>
+      <!-- 加速卡 -->
+      <div class="prod-card reveal">
+        <div class="prod-visual acc">
+          <svg viewBox="0 0 380 200" fill="none">
+            <rect x="30" y="55" width="320" height="95" rx="8" fill="#0d2444" stroke="#2d7cff" stroke-width="1.5"/>
+            <rect x="55" y="75" width="110" height="55" rx="6" fill="#1a4477" stroke="#2d7cff"/>
+            <text x="110" y="108" fill="#7fe9ff" font-size="14" font-weight="700" text-anchor="middle" font-family="sans-serif">AI / 算力芯片</text>
+            <g stroke="#2d7cff" opacity=".6"><line x1="180" y1="75" x2="180" y2="130"/><line x1="210" y1="75" x2="210" y2="130"/><line x1="240" y1="75" x2="240" y2="130"/></g>
+            <rect x="255" y="75" width="80" height="55" rx="5" fill="#10325f" stroke="#22e0b0"/><text x="295" y="107" fill="#22e0b0" font-size="11" text-anchor="middle" font-family="sans-serif">显存</text>
+            <rect x="30" y="148" width="320" height="6" fill="#1f4e85"/>
+            <rect x="340" y="70" width="14" height="70" rx="2" fill="#10325f" stroke="#2d7cff"/>
+            <g fill="#22e0b0"><circle cx="180" cy="70" r="2.5"/><circle cx="195" cy="70" r="2.5"/><circle cx="210" cy="70" r="2.5"/></g>
+          </svg>
+        </div>
+        <div class="prod-body">
+          <span class="cat">加速卡系列 · HQ-Accel</span>
+          <h3>HQ-Accel 系列算力加速卡</h3>
+          <p class="desc">面向 AI 推理与科学计算的 PCIe 加速卡，采用国产算力芯片方案，提供高能效比与稳定算力输出，适配科研算力平台搭建。</p>
+          <div class="chips"><span class="chip">PCIe</span><span class="chip">AI推理</span><span class="chip">科学计算</span><span class="chip">国产方案</span></div>
+          <ul class="specs">
+            <li><span class="k">接口</span><span class="v">PCIe Gen4 x8 / x16</span></li>
+            <li><span class="k">算力方案</span><span class="v">国产 AI / 通用算力芯片</span></li>
+            <li><span class="k">显存</span><span class="v">16GB / 32GB 可选</span></li>
+            <li><span class="k">功耗</span><span class="v">150W – 250W（被动散热）</span></li>
+            <li><span class="k">适用场景</span><span class="v">AI推理 / 算力集群 / 课题攻关</span></li>
+          </ul>
+          <a href="#contact" class="btn-line">了解详情 / 技术对接 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COOPERATION ============ -->
+<section class="coop" id="coop">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">校企合作</span>
+      <h2>与高校科研院所深度协同</h2>
+    </div>
+    <p class="coop-intro reveal">我们以产品为载体，与高校及科研机构在联合实验室、定制硬件、科研课题三个方向开展合作，把工程能力与教学科研需求紧密结合。</p>
+    <div class="case-grid">
+      <div class="case-card reveal">
+        <span class="case-tag lab">联合实验室</span>
+        <h4>联合实验室共建</h4>
+        <div class="partner">某重点高校 · 电子信息学院</div>
+        <p>共建嵌入式与算力联合实验室，提供开发板、加速卡设备及配套课程方案，支撑本科教学与研究生课题实践。</p>
+        <div class="case-out"><span class="ic">◆</span> 覆盖教学实验与课题双场景</div>
+      </div>
+      <div class="case-card reveal">
+        <span class="case-tag dev">定制开发</span>
+        <h4>课题定制开发板</h4>
+        <div class="partner">某科研院所 · 课题组</div>
+        <p>依据课题需求定制开发板硬件与接口方案，从原理图到批量交付全程配合，缩短科研硬件搭建周期。</p>
+        <div class="case-out"><span class="ic">◆</span> 按需定制 · 快速迭代交付</div>
+      </div>
+      <div class="case-card reveal">
+        <span class="case-tag res">科研课题</span>
+        <h4>算力加速课题攻关</h4>
+        <div class="partner">某高校 · 算法研究团队</div>
+        <p>提供国产加速卡与算力支持，协助完成模型部署与性能验证，服务算法研究与论文实验环节。</p>
+        <div class="case-out"><span class="ic">◆</span> 国产算力 · 全程技术支持</div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:34px;font-size:13px;color:var(--muted)">* 以上为合作方向示例，具体案例可按需替换为真实合作信息。</p>
+  </div>
+</section>
+
+<!-- ============ ADVANTAGES ============ -->
+<section class="adv" id="adv">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag">技术优势</span>
+      <h2>为什么选择皓千</h2>
+    </div>
+    <div class="adv-grid">
+      <div class="adv-card reveal">
+        <div class="adv-ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h4>国产化方案</h4>
+        <p>以国产芯片为核心，自主可控，适配信创与科研自主化需求。</p>
+      </div>
+      <div class="adv-card reveal">
+        <div class="adv-ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h4>完整资料配套</h4>
+        <p>例程、实验手册、课程包齐全，开箱即可用于教学与课题。</p>
+      </div>
+      <div class="adv-card reveal">
+        <div class="adv-ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+        <h4>按需定制</h4>
+        <p>支持硬件接口与功能定制，快速匹配课题与产业原型需求。</p>
+      </div>
+      <div class="adv-card reveal">
+        <div class="adv-ic"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <h4>本地化支持</h4>
+        <p>武汉本地团队，从选型、部署到售后全程响应，沟通零距离。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sec-tag" style="color:#7fe9ff">联系我们</span>
+      <h2>开启一次合作对话</h2>
+      <p>无论是采购开发板、加速卡，还是课题定制、联合实验室，欢迎与我们联系。</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>武汉皓千电子科技有限公司</h3>
+        <p class="lead">我们将在收到您的需求后尽快回复，提供选型建议与合作方案。</p>
+        <ul class="clist">
+          <li>
+            <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 12-9 12s-9-5-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="k">公司地址</div><div class="v">湖北省武汉市武汉经济技术开发区 12C2 地块武汉经开万达广场 B区S5-1栋28层B1-24室</div></div>
+          </li>
+          <li>
+            <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 6l-10 7L2 6"/></svg></div>
+            <div><div class="k">企业邮箱</div><div class="v">jiangjie@haoqian-tech.com</div></div>
+          </li>
+        </ul>
+      </div>
+      <div class="contact-cta-card reveal">
+        <h3>提交您的需求</h3>
+        <p>告诉我们您的应用场景，我们为您匹配最合适的开发板 / 加速卡方案或定制路径。</p>
+        <a href="mailto:jiangjie@haoqian-tech.com" class="btn btn-primary">发送邮件咨询</a>
+        <p style="font-size:13px;color:#8ba0b8;margin-top:18px;text-align:center">我们将尽快回复您的邮件咨询</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="logo">
+      <svg class="mark" viewBox="0 0 40 40" fill="none">
+        <rect x="3" y="3" width="34" height="34" rx="9" fill="#10325f"/>
+        <path d="M13 14h14M20 14v12M15 26h10" stroke="#7fe9ff" stroke-width="2.6" stroke-linecap="round"/>
+      </svg>
+      <span><span class="zh">皓千电子</span><span class="en">HAOQIAN ELECTRONICS</span></span>
+    </div>
+    <div class="copy">© 2026 武汉皓千电子科技有限公司 · <a href="#">鄂ICP备XXXXXXXX号</a> · 邮箱：jiangjie@haoqian-tech.com · 域名：haoqian-tech.com</div>
+  </div>
+</footer>
+
+<script>
+// 滚动导航变化
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+// 移动菜单
+const burger=document.getElementById('burger'),menu=document.getElementById('menu');
+burger.addEventListener('click',()=>menu.classList.toggle('open'));
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>menu.classList.remove('open')));
+// 滚动渐显
+const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
